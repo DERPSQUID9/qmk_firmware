@@ -41,14 +41,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
   [BASE] = LAYOUT_ergodox_pretty(
-    MO(2),          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 TG(4),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           RALT(RCTL(KC_DELETE)),
-    KC_TRANSPARENT, KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TT(1),                                          TG(3),          KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,
-    DYN_MACRO_PLAY1,KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                                                           KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_MINUS,
-    DYN_MACRO_PLAY2,KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           TT(5),                                          KC_BSPACE,      KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_EQUAL,
-    DYN_REC_STOP,   KC_GRAVE,       KC_QUOTE,       KC_LEFT,        KC_RIGHT,                                                                                                       KC_UP,          KC_DOWN,        KC_LBRACKET,    KC_RBRACKET,    KC_TRANSPARENT,
-                                                                                                    MT(MOD_HYPR, KC_CAPSLOCK),KC_LGUI,        KC_RGUI,        KC_MEH,
-                                                                                                                    LALT_T(KC_ESCAPE),RALT_T(KC_DELETE),
-                                                                                    KC_SPACE,       LCTL_T(KC_TAB), KC_LSPO,        KC_RSPC,        RCTL_T(KC_ENTER),KC_SPACE
+    MO(2),           KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                                 TG(4),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           RALT(RCTL(KC_DELETE)),
+    KC_TRANSPARENT,  KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TT(1),                                                          TG(3),          KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,
+    DYN_MACRO_PLAY1, KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                                                                           KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_MINUS,
+    DYN_MACRO_PLAY2, KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           TT(5),                                                          KC_BSPACE,      KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_EQUAL,
+    DYN_REC_STOP,    KC_GRAVE,       KC_QUOTE,       KC_LEFT,        KC_RIGHT,                                                                                                                       KC_UP,          KC_DOWN,        KC_LBRACKET,    KC_RBRACKET,    KC_TRANSPARENT,
+                                                                                                     MT(MOD_HYPR, KC_CAPSLOCK), KC_LGUI,           KC_RGUI,          KC_MEH,
+                                                                                                                                LALT_T(KC_ESCAPE), RALT_T(KC_DELETE),
+                                                                                     KC_SPACE,       LCTL_T(KC_TAB),            KC_LSPO,   KC_RSPC,           RCTL_T(KC_ENTER), KC_SPACE
   ),
 
 /* Keymap 1: Function layer
