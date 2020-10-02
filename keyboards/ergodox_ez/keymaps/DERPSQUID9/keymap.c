@@ -170,14 +170,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
   [ARRW] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_UP,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_UP,   KC_TRNS,  KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                     KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                                       KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
+                                                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                                                   KC_TRNS, KC_TRNS,
+                                                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
 /* Keymap 5: Kitty layer
@@ -202,14 +202,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
   [KTTY] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, LCTL(LSFT(KC_1)),     LCTL(LSFT(KC_2)), LCTL(LSFT(KC_3)),    LCTL(LSFT(KC_4)),     LCTL(LSFT(KC_5)), LCTL(LSFT(KC_F2)),                              RALT(RCTL(RSFT(KC_T))), RCTL(RSFT(KC_6)), RCTL(RSFT(KC_7)),  RCTL(RSFT(KC_8)),     RCTL(RSFT(KC_9)),        RCTL(RSFT(KC_0)),        KC_TRANSPARENT,
-    KC_TRANSPARENT, LCTL(LSFT(KC_Q)),     LCTL(LSFT(KC_W)), LCTL(LSFT(KC_E)),    KC_TRANSPARENT,       LCTL(LSFT(KC_T)), LCTL(LSFT(KC_ESCAPE)),                          RCTL(RSFT(KC_ENTER)),   KC_TRANSPARENT,   RCTL(RSFT(KC_U)),  KC_TRANSPARENT,       RCTL(RSFT(KC_O)),        KC_TRANSPARENT,          KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT,       LCTL(LSFT(KC_S)), KC_TRANSPARENT,      LCTL(LSFT(KC_F)),     KC_TRANSPARENT,                                                                           KC_TRANSPARENT,   KC_TRANSPARENT,    KC_TRANSPARENT,       RCTL(RSFT(KC_L)),        KC_TRANSPARENT,          KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT,       KC_TRANSPARENT,   LCTL(LSFT(KC_C)),    LCTL(LSFT(KC_V)),     LCTL(LSFT(KC_B)), KC_TRANSPARENT,                                 KC_TRANSPARENT,         RCTL(RSFT(KC_N)), KC_TRANSPARENT,    RCTL(RSFT(KC_COMMA)), RCTL(RSFT(KC_DOT)),      KC_TRANSPARENT,          KC_TRANSPARENT,
-    KC_TRANSPARENT, LCTL(LSFT(KC_GRAVE)), KC_TRANSPARENT,   LCTL(LSFT(KC_LEFT)), LCTL(LSFT(KC_RIGHT)),                                                                                                             RCTL(RSFT(KC_UP)), RCTL(RSFT(KC_DOWN)),  RCTL(RSFT(KC_LBRACKET)), RCTL(RSFT(KC_RBRACKET)), KC_TRANSPARENT,
-                                                                                                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                                         KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    KC_TRNS, LCTL(LSFT(KC_1)),     LCTL(LSFT(KC_2)), LCTL(LSFT(KC_3)),    LCTL(LSFT(KC_4)),     LCTL(LSFT(KC_5)), LCTL(LSFT(KC_F2)),         RALT(RCTL(RSFT(KC_T))), RCTL(RSFT(KC_6)),  RCTL(RSFT(KC_7)),    RCTL(RSFT(KC_8)),        RCTL(RSFT(KC_9)),        RCTL(RSFT(KC_0)), KC_TRNS,
+    KC_TRNS, LCTL(LSFT(KC_Q)),     LCTL(LSFT(KC_W)), LCTL(LSFT(KC_E)),    KC_TRNS,              LCTL(LSFT(KC_T)), LCTL(LSFT(KC_ESCAPE)),     RCTL(RSFT(KC_ENTER)),   KC_TRNS,           RCTL(RSFT(KC_U)),    KC_TRNS,                 RCTL(RSFT(KC_O)),        KC_TRNS,          KC_TRNS,
+    KC_TRNS, KC_TRNS,              LCTL(LSFT(KC_S)), KC_TRNS,             LCTL(LSFT(KC_F)),     KC_TRNS,                                                             KC_TRNS,           KC_TRNS,             KC_TRNS,                 RCTL(RSFT(KC_L)),        KC_TRNS,          KC_TRNS,
+    KC_TRNS, KC_TRNS,              KC_TRNS,          LCTL(LSFT(KC_C)),    LCTL(LSFT(KC_V)),     LCTL(LSFT(KC_B)), KC_TRNS,                   KC_TRNS,                RCTL(RSFT(KC_N)),  KC_TRNS,             RCTL(RSFT(KC_COMMA)),    RCTL(RSFT(KC_DOT)),      KC_TRNS,          KC_TRNS,
+    KC_TRNS, LCTL(LSFT(KC_GRAVE)), KC_TRNS,          LCTL(LSFT(KC_LEFT)), LCTL(LSFT(KC_RIGHT)),                                                                      RCTL(RSFT(KC_UP)), RCTL(RSFT(KC_DOWN)), RCTL(RSFT(KC_LBRACKET)), RCTL(RSFT(KC_RBRACKET)), KC_TRNS,
+                                                                                                                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                                                                                                           KC_TRNS, KC_TRNS,
+                                                                                                         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 };
 // clang-format on
