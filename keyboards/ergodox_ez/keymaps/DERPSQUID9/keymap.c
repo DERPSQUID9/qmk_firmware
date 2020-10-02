@@ -5,6 +5,7 @@ enum layers {
     BASE,  // default layer
     FNCT,  // function keys
     MDIA,  // media keys
+    MOUS,  // mouse keys
     ARRW,  // arrow keys
     KTTY,  // Kitty hotkeys
 };
@@ -105,14 +106,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
   [MDIA] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, RESET,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    RGB_MOD,        TOGGLE_LAYER_COLOR,RGB_TOG,        RGB_SLD,
-                                                                                                                    HSV_172_255_255,HSV_215_255_128,
-                                                                                    RGB_VAD,        RGB_VAI,        HSV_86_255_128, HSV_0_255_255,  RGB_HUD,        RGB_HUI
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RESET,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                                                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                                          RGB_MOD, TOGGLE_LAYER_COLOR, RGB_TOG,         RGB_SLD,
+                                                                   HSV_172_255_255,    HSV_215_255_128,
+                                                 RGB_VAD, RGB_VAI, HSV_86_255_128,     HSV_0_255_255,   RGB_HUD, RGB_HUI
   ),
 
 /* Keymap 3: Mouse layer
@@ -136,15 +137,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |LCtrl |Shift(|       |MClick|        |      |
  *                                 `--------------------'       `----------------------'
  */
-  [ARRW] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_MS_WH_LEFT,  KC_MS_WH_DOWN,  KC_MS_WH_UP,    KC_MS_WH_RIGHT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_UP,       KC_MS_RIGHT,    KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN5,
-                                                                                                                    KC_TRANSPARENT, KC_MS_BTN4,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN3,     KC_MS_BTN2,     KC_MS_BTN1
+  [MOUS] = LAYOUT_ergodox_pretty(
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                      KC_TRNS, KC_TRNS,       KC_TRNS,       KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                      KC_TRNS, KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_MS_WH_RIGHT, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                        KC_LEFT,       KC_DOWN,       KC_UP,       KC_RIGHT,       KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                      KC_TRNS, KC_MS_LEFT,    KC_MS_DOWN,    KC_MS_UP,    KC_MS_RIGHT,    KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                                                KC_TRNS,       KC_TRNS,     KC_TRNS,        KC_TRNS, KC_TRNS,
+                                                          KC_TRNS, KC_TRNS, KC_TRNS,    KC_MS_BTN5,
+                                                                   KC_TRNS, KC_MS_BTN4,
+                                                 KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_BTN3, KC_MS_BTN2, KC_MS_BTN1
   ),
 
 /* Keymap 4: Arrow layer
@@ -168,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |LCtrl |Shift(|       |Shift)| RCtrl  |      |
  *                                 `--------------------'       `----------------------'
  */
-  [KTTY] = LAYOUT_ergodox_pretty(
+  [ARRW] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_UP,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
@@ -200,7 +201,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |LCtrl |Shift(|       |Shift)| RCtrl  |      |
  *                                 `--------------------'       `----------------------'
  */
-  [5] = LAYOUT_ergodox_pretty(
+  [KTTY] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, LCTL(LSFT(KC_1)),     LCTL(LSFT(KC_2)), LCTL(LSFT(KC_3)),    LCTL(LSFT(KC_4)),     LCTL(LSFT(KC_5)), LCTL(LSFT(KC_F2)),                              RALT(RCTL(RSFT(KC_T))), RCTL(RSFT(KC_6)), RCTL(RSFT(KC_7)),  RCTL(RSFT(KC_8)),     RCTL(RSFT(KC_9)),        RCTL(RSFT(KC_0)),        KC_TRANSPARENT,
     KC_TRANSPARENT, LCTL(LSFT(KC_Q)),     LCTL(LSFT(KC_W)), LCTL(LSFT(KC_E)),    KC_TRANSPARENT,       LCTL(LSFT(KC_T)), LCTL(LSFT(KC_ESCAPE)),                          RCTL(RSFT(KC_ENTER)),   KC_TRANSPARENT,   RCTL(RSFT(KC_U)),  KC_TRANSPARENT,       RCTL(RSFT(KC_O)),        KC_TRANSPARENT,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT,       LCTL(LSFT(KC_S)), KC_TRANSPARENT,      LCTL(LSFT(KC_F)),     KC_TRANSPARENT,                                                                           KC_TRANSPARENT,   KC_TRANSPARENT,    KC_TRANSPARENT,       RCTL(RSFT(KC_L)),        KC_TRANSPARENT,          KC_TRANSPARENT,
