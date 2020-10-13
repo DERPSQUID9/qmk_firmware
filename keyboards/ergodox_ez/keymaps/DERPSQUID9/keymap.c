@@ -11,6 +11,7 @@ enum layers {
 
 enum custom_keycodes {
     RGB_SLD = EZ_SAFE_RANGE,
+    ALTCASE,
 };
 
 // clang-format off
@@ -26,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| KTTY |           | BkSp |------+------+------+------+------+--------|
  * |Mac2Play|   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |Stop Fx |
+ *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |CAP/Hy| LWin |       | RWin |  Meh   |
@@ -41,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RGB_HUD,         KC_Q,     KC_W,     KC_E,    KC_R,     KC_T, TT(FNCT),                                                        TG(MOUS),  KC_Y, KC_U,  KC_I,     KC_O,        KC_P,        KC_BSLASH,
         DYN_MACRO_PLAY1, KC_A,     KC_S,     KC_D,    KC_F,     KC_G,                                                                             KC_H, KC_J,  KC_K,     KC_L,        KC_SCOLON,   KC_MINUS,
         DYN_MACRO_PLAY2, KC_Z,     KC_X,     KC_C,    KC_V,     KC_B, TT(KTTY),                                                        KC_BSPACE, KC_N, KC_M,  KC_COMMA, KC_DOT,      KC_SLASH,    KC_EQUAL,
-        DYN_REC_STOP,    KC_GRAVE, KC_QUOTE, KC_LEFT, KC_RIGHT,                                                                                         KC_UP, KC_DOWN,  KC_LBRACKET, KC_RBRACKET, RGB_SLD,
+        DYN_REC_STOP,    KC_GRAVE, KC_QUOTE, KC_LEFT, KC_RIGHT,                                                                                         KC_UP, KC_DOWN,  KC_LBRACKET, KC_RBRACKET, ALTCASE,
                                                                       MT(MOD_HYPR, KC_CAPSLOCK), KC_LGUI,           KC_RGUI,           KC_MEH,
                                                                                                  LALT_T(KC_ESCAPE), RALT_T(KC_DELETE),
                                                             KC_SPACE, LCTL_T(KC_TAB),            KC_LSPO,           KC_RSPC,           RCTL_T(KC_ENTER), KC_SPACE
@@ -50,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 1: Function layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |Mac1Rec |  F1  |  F2  |  F3  |  F4  |  F5  |      |           | ARRW |  F6  |  F7  |  F8  |  F9  |  F10 | RESET  |
+ * |Mac1Rec |  F1  |  F2  |  F3  |  F4  |  F5  |ChngFx|           | ARRW |  F6  |  F7  |  F8  |  F9  |  F10 | RESET  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |Mac2Rec |  F11 |  F12 |  F13 |  F14 |  F15 | FNCT |           | MOUS |  F16 |  F17 |  F18 |  F19 |  F20 |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -58,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| KTTY |           | BkSp |------+------+------+------+------+--------|
  * |Mac2Play|      |      |      |      |      |      |           |      |      |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|      |      |      |      |                                       |      |      |      |      |      |
+ *   |RecStp|      |      |      |      |                                       |      |      |      |      |Stop Fx |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |CAP/Hy| LWin |       | RWin |  Meh   |
@@ -73,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         DYN_REC_START2, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  _______,                   _______, KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
         _______,        KC_F21,  KC_F22,  KC_F23,  KC_F24,  XXXXXXX,                                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         _______,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        _______,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        _______,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_SLD,
                                                                      _______, _______, _______, _______,
                                                                               _______, _______,
                                                             _______, _______, _______, _______, _______, _______
@@ -82,15 +83,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 2: Mouse layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |   1  |   2  |   3  |   4  |   5  |      |           | ARRW |   6  |   7  |   8  |   9  |   0  | C+A+D  |
+ * | Hue++  |   1  |   2  |   3  |   4  |   5  |ChngFx|           | ARRW |   6  |   7  |   8  |   9  |   0  | C+A+D  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |W Left|W Down| W Up |WRight|   P  |   \    |
+ * | Hue--  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |W Left|W Down| W Up |WRight|   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Mac1Play|   A  |   S  |   D  |   F  |   G  |------|           |------| Left | Down |  Up  |Right |   ;  |   -    |
  * |--------+------+------+------+------+------| KTTY |           | BkSp |------+------+------+------+------+--------|
  * |Mac2Play|   Z  |   X  |   C  |   V  |   B  |      |           |      |M Left|M Down| M Up |MRight|   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |      |
+ *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |CAP/Hy| LWin |       | RWin |Button 5|
@@ -114,15 +115,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 3: Arrow layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |   1  |   2  |   3  |   4  |   5  |      |           | ARRW |   6  |   7  |   8  |   9  |   0  | C+A+D  |
+ * | Hue++  |   1  |   2  |   3  |   4  |   5  |ChngFx|           | ARRW |   6  |   7  |   8  |   9  |   0  | C+A+D  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |  Up  |   O  |   P  |   \    |
+ * | Hue--  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |  Up  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Mac1Play|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  | Left | Down |Right |   ;  |   -    |
  * |--------+------+------+------+------+------| KTTY |           | BkSp |------+------+------+------+------+--------|
  * |Mac2Play|   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |      |
+ *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |CAP/Hy| LWin |       | RWin |  Meh   |
@@ -146,15 +147,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 4: Kitty layer
  * An asterisk (*) means CTRL+SHIFT+<key> where <key> is the key's value
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |   1* |   2* |   3* |   4* |   5* | F2*  |           |Alt-T*|   6* |   7* |   8* |   9* |   0* | C+A+D  |
+ * | Hue++  |   1* |   2* |   3* |   4* |   5* | F2*  |           |Alt-T*|   6* |   7* |   8* |   9* |   0* | C+A+D  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |   Q* |   W* |   E* |   R  |   T* | Esc* |           |Enter*|   Y  |   U* |   I  |   O* |   P  |   \    |
+ * | Hue--  |   Q* |   W* |   E* |   R  |   T* | Esc* |           |Enter*|   Y  |   U* |   I  |   O* |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Mac1Play|   A  |   S* |   D  |   F* |   G  |------|           |------|   H  |   J  |   K  |   L* |   ;  |   -    |
  * |--------+------+------+------+------+------| TT 5 |           | BkSp |------+------+------+------+------+--------|
  * |Mac2Play|   Z  |   X  |   C* |   V* |   B* |      |           |      |   N* |   M  |   ,* |   .* |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|  `*  |  '"  | Left*|Right*|                                       |  Up* | Down*|   [* |   ]* |      |
+ *   |RecStp|  `*  |  '"  | Left*|Right*|                                       |  Up* | Down*|   [* |   ]* |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |CAP/Hy| LWin |       | RWin |  Meh   |
@@ -288,14 +289,37 @@ void rgb_matrix_indicators_user(void) {
     }
 }
 
+static bool alt_case_toggle = false;
+static bool alt_case_shift  = false;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case KC_A ... KC_Z:
+            if (alt_case_toggle && record->event.pressed) {
+                if (alt_case_shift) {
+                    tap_code16(S(keycode));
+                    alt_case_shift = !alt_case_shift;
+                    return false;
+                } else {
+                    alt_case_shift = !alt_case_shift;
+                }
+            }
+            return true;
+        case ALTCASE:
+            if (record->event.pressed) {
+                if (alt_case_toggle) {
+                    alt_case_shift = false;
+                }
+                alt_case_toggle = !alt_case_toggle;
+            }
+            return false;
         case RGB_SLD:
             if (record->event.pressed) {
                 rgblight_mode(1);
             }
             return false;
     }
+
     return true;
 }
 
