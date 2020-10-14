@@ -297,20 +297,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_A ... KC_Z:
             if (alt_case_toggle && record->event.pressed) {
                 if (alt_case_shift) {
-                    tap_code16(S(keycode));
-                    alt_case_shift = !alt_case_shift;
-                    return false;
-                } else {
-                    alt_case_shift = !alt_case_shift;
+                    set_oneshot_mods(get_oneshot_mods() | MOD_MASK_SHIFT);
                 }
+                alt_case_shift = !alt_case_shift;
             }
             return true;
         case ALTCASE:
             if (record->event.pressed) {
-                if (alt_case_toggle) {
-                    alt_case_shift = false;
-                }
                 alt_case_toggle = !alt_case_toggle;
+                alt_case_shift  = false;
             }
             return false;
         case RGB_SLD:
