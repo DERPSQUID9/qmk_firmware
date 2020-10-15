@@ -1,9 +1,16 @@
 # Set any rules.mk overrides for your specific keymap here.
 # See rules at https://docs.qmk.fm/#/config_options?id=the-rulesmk-file
-LTO_ENABLE = yes
-CONSOLE_ENABLE = no
-COMMAND_ENABLE = no
-DYNAMIC_MACRO_ENABLE = yes
+
+# Custom Matrix
 SRC = matrix.c
-RGBLIGHT_ENABLE = no
-RGB_MATRIX_ENABLE = yes
+
+# Enable Features
+LTO_ENABLE = yes           # Enable Link Time Optimization
+DYNAMIC_MACRO_ENABLE = yes # Enable Dynamic Macros
+RGB_MATRIX_ENABLE = yes    # Enable RGB Matrix
+
+# Disable Unused Features
+CONSOLE_ENABLE = no        # Disable debugging output
+COMMAND_ENABLE = no        # Disable command
+RGBLIGHT_ENABLE = no       # Disable RGB Light (RGB Matrix is already in use)
+SWAP_HANDS_ENABLE = no     # Disable Swap Hands
