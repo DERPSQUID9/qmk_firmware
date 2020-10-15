@@ -166,14 +166,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
     [KTTY] = LAYOUT_ergodox_pretty(
-        _______, LCTL(LSFT(KC_1)),     LCTL(LSFT(KC_2)), LCTL(LSFT(KC_3)),    LCTL(LSFT(KC_4)),     LCTL(LSFT(KC_5)), LCTL(LSFT(KC_F2)),         RALT(RCTL(RSFT(KC_T))), RCTL(RSFT(KC_6)),  RCTL(RSFT(KC_7)),    RCTL(RSFT(KC_8)),        RCTL(RSFT(KC_9)),        RCTL(RSFT(KC_0)), _______,
-        _______, LCTL(LSFT(KC_Q)),     LCTL(LSFT(KC_W)), LCTL(LSFT(KC_E)),    _______,              LCTL(LSFT(KC_T)), LCTL(LSFT(KC_ESCAPE)),     RCTL(RSFT(KC_ENTER)),   _______,           RCTL(RSFT(KC_U)),    _______,                 RCTL(RSFT(KC_O)),        _______,          _______,
-        _______, _______,              LCTL(LSFT(KC_S)), _______,             LCTL(LSFT(KC_F)),     _______,                                                             _______,           _______,             _______,                 RCTL(RSFT(KC_L)),        _______,          _______,
-        _______, _______,              _______,          LCTL(LSFT(KC_C)),    LCTL(LSFT(KC_V)),     LCTL(LSFT(KC_B)), _______,                   _______,                RCTL(RSFT(KC_N)),  _______,             RCTL(RSFT(KC_COMMA)),    RCTL(RSFT(KC_DOT)),      _______,          _______,
-        _______, LCTL(LSFT(KC_GRAVE)), _______,          LCTL(LSFT(KC_LEFT)), LCTL(LSFT(KC_RIGHT)),                                                                      RCTL(RSFT(KC_UP)), RCTL(RSFT(KC_DOWN)), RCTL(RSFT(KC_LBRACKET)), RCTL(RSFT(KC_RBRACKET)), _______,
-                                                                                                                      _______, _______, _______, _______,
-                                                                                                                               _______, _______,
-                                                                                                             _______, _______, _______, _______, _______, _______
+        _______, RCS(KC_1),    RCS(KC_2), RCS(KC_3),    RCS(KC_4),     RCS(KC_5), RCS(KC_F2),                RALT(RCS(KC_T)), RCS(KC_6),  RCS(KC_7),    RCS(KC_8),        RCS(KC_9),        RCS(KC_0), _______,
+        _______, RCS(KC_Q),    RCS(KC_W), RCS(KC_E),    _______,       RCS(KC_T), RCS(KC_ESCAPE),            RCS(KC_ENTER),   _______,    RCS(KC_U),    _______,          RCS(KC_O),        _______,   _______,
+        _______, _______,      RCS(KC_S), _______,      RCS(KC_F),     _______,                                               _______,    _______,      _______,          RCS(KC_L),        _______,   _______,
+        _______, _______,      _______,   RCS(KC_C),    RCS(KC_V),     RCS(KC_B), _______,                   _______,         RCS(KC_N),  _______,      RCS(KC_COMMA),    RCS(KC_DOT),      _______,   _______,
+        _______, RCS(KC_GRAVE), _______,  RCS(KC_LEFT), RCS(KC_RIGHT),                                                        RCS(KC_UP), RCS(KC_DOWN), RCS(KC_LBRACKET), RCS(KC_RBRACKET), _______,
+                                                                                  _______, _______, _______, _______,
+                                                                                           _______, _______,
+                                                                         _______, _______, _______, _______, _______, _______
   ),
 };
 // clang-format on
