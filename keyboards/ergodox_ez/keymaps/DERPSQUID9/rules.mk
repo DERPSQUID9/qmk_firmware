@@ -8,6 +8,7 @@ SRC = matrix.c
 LTO_ENABLE = yes           # Enable Link Time Optimization
 DYNAMIC_MACRO_ENABLE = yes # Enable Dynamic Macros
 RGB_MATRIX_ENABLE = yes    # Enable RGB Matrix
+TAP_DANCE_ENABLE = yes     # Enable Tap Dance
 
 # Disable Unused Features
 CONSOLE_ENABLE = no        # Disable debugging output

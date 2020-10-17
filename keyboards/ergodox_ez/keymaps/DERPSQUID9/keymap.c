@@ -14,6 +14,16 @@ enum custom_keycodes {
     ALTCASE,
 };
 
+enum tap_dance {
+    TD_GESC,
+};
+
+// Tap Dance definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Escape, twice for grave
+    [TD_GESC] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_GRAVE),
+};
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Base layer
@@ -27,25 +37,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| KTTY |           | BkSp |------+------+------+------+------+--------|
  * |Mac2Play|   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
+ *   |RecStp|ESC/~`|  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |CAP/Hy| LWin |       | RWin |  Meh   |
+ *                                        |CAP/Hy|L Win |       |R Win |  Meh   |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      |Esc/LA|       |Del/RA|        |      |
- *                                 |Space |Tab/  |------|       |------| Enter/ |Enter |
+ *                                 |      |      |L Alt |       |Del/RA|        |      |
+ *                                 |Space |Tab/  |------|       |------| Enter/ |Space |
  *                                 |      |LCtrl |Shift(|       |Shift)| RCtrl  |      |
  *                                 `--------------------'       `----------------------'
  */
     [BASE] = LAYOUT_ergodox_pretty(
-        RGB_HUI,         KC_1,     KC_2,     KC_3,    KC_4,     KC_5, RGB_MOD,                                                         TG(ARRW),  KC_6, KC_7,  KC_8,     KC_9,        KC_0,        RALT(RCTL(KC_DELETE)),
-        RGB_HUD,         KC_Q,     KC_W,     KC_E,    KC_R,     KC_T, TT(FNCT),                                                        TG(MOUS),  KC_Y, KC_U,  KC_I,     KC_O,        KC_P,        KC_BSLASH,
-        DYN_MACRO_PLAY1, KC_A,     KC_S,     KC_D,    KC_F,     KC_G,                                                                             KC_H, KC_J,  KC_K,     KC_L,        KC_SCOLON,   KC_MINUS,
-        DYN_MACRO_PLAY2, KC_Z,     KC_X,     KC_C,    KC_V,     KC_B, TT(KTTY),                                                        KC_BSPACE, KC_N, KC_M,  KC_COMMA, KC_DOT,      KC_SLASH,    KC_EQUAL,
-        DYN_REC_STOP,    KC_GRAVE, KC_QUOTE, KC_LEFT, KC_RIGHT,                                                                                         KC_UP, KC_DOWN,  KC_LBRACKET, KC_RBRACKET, ALTCASE,
-                                                                      MT(MOD_HYPR, KC_CAPSLOCK), KC_LGUI,           KC_RGUI,           KC_MEH,
-                                                                                                 LALT_T(KC_ESCAPE), RALT_T(KC_DELETE),
-                                                            KC_SPACE, LCTL_T(KC_TAB),            KC_LSPO,           KC_RSPC,           RCTL_T(KC_ENTER), KC_SPACE
+        RGB_HUI,         KC_1,        KC_2,     KC_3,    KC_4,     KC_5, RGB_MOD,                                                 TG(ARRW),  KC_6, KC_7,  KC_8,     KC_9,        KC_0,        RALT(RCTL(KC_DELETE)),
+        RGB_HUD,         KC_Q,        KC_W,     KC_E,    KC_R,     KC_T, TT(FNCT),                                                TG(MOUS),  KC_Y, KC_U,  KC_I,     KC_O,        KC_P,        KC_BSLASH,
+        DYN_MACRO_PLAY1, KC_A,        KC_S,     KC_D,    KC_F,     KC_G,                                                                     KC_H, KC_J,  KC_K,     KC_L,        KC_SCOLON,   KC_MINUS,
+        DYN_MACRO_PLAY2, KC_Z,        KC_X,     KC_C,    KC_V,     KC_B, TT(KTTY),                                                KC_BSPACE, KC_N, KC_M,  KC_COMMA, KC_DOT,      KC_SLASH,    KC_EQUAL,
+        DYN_REC_STOP,    TD(TD_GESC), KC_QUOTE, KC_LEFT, KC_RIGHT,                                                                                 KC_UP, KC_DOWN,  KC_LBRACKET, KC_RBRACKET, ALTCASE,
+                                                                         MT(MOD_HYPR, KC_CAPSLOCK),   KC_LGUI, KC_RGUI,           KC_MEH,
+                                                                                                      KC_LALT, RALT_T(KC_DELETE),
+                                                                         KC_SPACE,    LCTL_T(KC_TAB), KC_LSPO, KC_RSPC,           RCTL_T(KC_ENTER), KC_SPACE
   ),
 
 /* Keymap 1: Function layer
