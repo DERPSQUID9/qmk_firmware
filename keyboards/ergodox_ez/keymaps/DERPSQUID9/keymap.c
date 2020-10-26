@@ -29,15 +29,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Base layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Hue++  |   1  |   2  |   3  |   4  |   5  |ChngFx|           | ARRW |   6  |   7  |   8  |   9  |   0  |        |
+ * | Hue++  |   1  |   2  |   3  |   4  |   5  |      |           | ARRW |   6  |   7  |   8  |   9  |   0  |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Hue--  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * | Sat++  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Mac1Play|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   -    |
+ * |Value++ |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   -    |
  * |--------+------+------+------+------+------| KTTY |           |      |------+------+------+------+------+--------|
- * |Mac2Play|   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
+ * |Speed++ |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|ESC/~`|  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
+ *   |NextFx|ESC/~`|  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |Hyper |L Win |       |R Win |  Meh   |
@@ -48,11 +48,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
     [BASE] = LAYOUT_ergodox_pretty(
-        RGB_HUI, KC_1,        KC_2,    KC_3,    KC_4,    KC_5, RGB_MOD,                                   TG(ARRW), KC_6, KC_7,  KC_8,    KC_9,    KC_0,    XXXXXXX,
-        RGB_HUD, KC_Q,        KC_W,    KC_E,    KC_R,    KC_T, TT(FNCT),                                  TG(MOUS), KC_Y, KC_U,  KC_I,    KC_O,    KC_P,    KC_BSLS,
-        DM_PLY1, KC_A,        KC_S,    KC_D,    KC_F,    KC_G,                                                      KC_H, KC_J,  KC_K,    KC_L,    KC_SCLN, KC_MINUS,
-        DM_PLY2, KC_Z,        KC_X,    KC_C,    KC_V,    KC_B, TT(KTTY),                                  XXXXXXX,  KC_N, KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
-        DM_RSTP, TD(TD_GESC), KC_QUOT, KC_LEFT, KC_RGHT,                                                                  KC_UP, KC_DOWN, KC_LBRC, KC_RBRC, ALTCASE,
+        RGB_HUI, KC_1,        KC_2,    KC_3,    KC_4,    KC_5, XXXXXXX,                                   TG(ARRW), KC_6, KC_7,  KC_8,    KC_9,    KC_0,    XXXXXXX,
+        RGB_SAI, KC_Q,        KC_W,    KC_E,    KC_R,    KC_T, TT(FNCT),                                  TG(MOUS), KC_Y, KC_U,  KC_I,    KC_O,    KC_P,    KC_BSLS,
+        RGB_VAI, KC_A,        KC_S,    KC_D,    KC_F,    KC_G,                                                      KC_H, KC_J,  KC_K,    KC_L,    KC_SCLN, KC_MINUS,
+        RGB_SPI, KC_Z,        KC_X,    KC_C,    KC_V,    KC_B, TT(KTTY),                                  XXXXXXX,  KC_N, KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
+        RGB_MOD, TD(TD_GESC), KC_QUOT, KC_LEFT, KC_RGHT,                                                                  KC_UP, KC_DOWN, KC_LBRC, KC_RBRC, ALTCASE,
                                                                KC_HYPR,  KC_LGUI,         KC_RGUI,        KC_MEH,
                                                                          LALT_T(KC_CAPS), RALT_T(KC_DEL),
                                               KC_SPACE, LCTL_T(KC_TAB),  KC_LSPO,         KC_RSPC,        RCTL_T(KC_ENTER), KC_BSPC
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 1: Function layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |Mac1Rec |  F1  |  F2  |  F3  |  F4  |  F5  |ChngFx|           | ARRW |  F6  |  F7  |  F8  |  F9  |  F10 |        |
+ * |Mac1Rec |  F1  |  F2  |  F3  |  F4  |  F5  |      |           | ARRW |  F6  |  F7  |  F8  |  F9  |  F10 |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |Mac2Rec |  F11 |  F12 |  F13 |  F14 |  F15 | FNCT |           | MOUS |  F16 |  F17 |  F18 |  F19 |  F20 |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -82,9 +82,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [FNCT] = LAYOUT_ergodox_pretty(
         DM_REC1, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,                   _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  RESET,
         DM_REC2, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  _______,                   _______, KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
-        _______, KC_F21,  KC_F22,  KC_F23,  KC_F24,  XXXXXXX,                                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_SLD,
+        DM_PLY1, KC_F21,  KC_F22,  KC_F23,  KC_F24,  XXXXXXX,                                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        DM_PLY2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        DM_RSTP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_SLD,
                                                               _______, _______, _______, _______,
                                                                        _______, _______,
                                                      _______, _______, _______, _______, _______, _______
@@ -93,15 +93,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 2: Mouse layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Hue++  |   1  |   2  |   3  |   4  |   5  |ChngFx|           | ARRW |   6  |   7  |   8  |   9  |   0  |        |
+ * | Hue++  |   1  |   2  |   3  |   4  |   5  |      |           | ARRW |   6  |   7  |   8  |   9  |   0  |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Hue--  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |W Left|W Down| W Up |WRight|   P  |   \    |
+ * | Sat++  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |W Left|W Down| W Up |WRight|   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Mac1Play|   A  |   S  |   D  |   F  |   G  |------|           |------| Left | Down |  Up  |Right |   ;  |   -    |
+ * |Value++ |   A  |   S  |   D  |   F  |   G  |------|           |------| Left | Down |  Up  |Right |   ;  |   -    |
  * |--------+------+------+------+------+------| KTTY |           |      |------+------+------+------+------+--------|
- * |Mac2Play|   Z  |   X  |   C  |   V  |   B  |      |           |      |M Left|M Down| M Up |MRight|   /  |   =    |
+ * |Speed++ |   Z  |   X  |   C  |   V  |   B  |      |           |      |M Left|M Down| M Up |MRight|   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
+ *   |NextFx|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |Hyper | LWin |       | RWin |Button 5|
@@ -125,15 +125,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 3: Arrow layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Hue++  |   1  |   2  |   3  |   4  |   5  |ChngFx|           | ARRW |   6  |   7  |   8  |   9  |   0  |        |
+ * | Hue++  |   1  |   2  |   3  |   4  |   5  |      |           | ARRW |   6  |   7  |   8  |   9  |   0  |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Hue--  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |  Up  |   O  |   P  |   \    |
+ * | Sat++  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |  Up  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Mac1Play|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  | Left | Down |Right |   ;  |   -    |
+ * |Value++ |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  | Left | Down |Right |   ;  |   -    |
  * |--------+------+------+------+------+------| KTTY |           |      |------+------+------+------+------+--------|
- * |Mac2Play|   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
+ * |Speed++ |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
+ *   |NextFx|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |Hyper | LWin |       | RWin |  Meh   |
@@ -161,11 +161,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Hue--  |   Q* |   W* |   E* |   R  |   T* | Esc* |           |Enter*|   Y  |   U* |   I  |   O* |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Mac1Play|   A  |   S* |   D  |   F* |   G  |------|           |------|   H  |   J  |   K  |   L* |   ;  |   -    |
+ * |Value++ |   A  |   S* |   D  |   F* |   G  |------|           |------|   H  |   J  |   K  |   L* |   ;  |   -    |
  * |--------+------+------+------+------+------| TT 5 |           |      |------+------+------+------+------+--------|
- * |Mac2Play|   Z  |   X  |   C* |   V* |   B* |      |           |      |   N* |   M  |   ,* |   .* |   /  |   =    |
+ * |Speed++ |   Z  |   X  |   C* |   V* |   B* |      |           |      |   N* |   M  |   ,* |   .* |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|  `*  |  '"  | Left*|Right*|                                       |  Up* | Down*|   [* |   ]* |ALTCASE |
+ *   |NextFx|  `*  |  '"  | Left*|Right*|                                       |  Up* | Down*|   [* |   ]* |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |Hyper | LWin |       | RWin |  Meh   |
