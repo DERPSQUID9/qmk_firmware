@@ -40,22 +40,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |RecStp|ESC/~`|  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |CAP/Hy|L Win |       |R Win |  Meh   |
+ *                                        |Hyper |L Win |       |R Win |  Meh   |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      |L Alt |       |Del/RA|        |      |
+ *                                 |      |      |Cap/LA|       |Del/RA|        |      |
  *                                 |Space |Tab/  |------|       |------| Enter/ |Space |
  *                                 |      |LCtrl |Shift(|       |Shift)| RCtrl  |      |
  *                                 `--------------------'       `----------------------'
  */
     [BASE] = LAYOUT_ergodox_pretty(
-        RGB_HUI,         KC_1,        KC_2,     KC_3,    KC_4,     KC_5, RGB_MOD,                                                 TG(ARRW),  KC_6, KC_7,  KC_8,     KC_9,        KC_0,        RALT(RCTL(KC_DELETE)),
-        RGB_HUD,         KC_Q,        KC_W,     KC_E,    KC_R,     KC_T, TT(FNCT),                                                TG(MOUS),  KC_Y, KC_U,  KC_I,     KC_O,        KC_P,        KC_BSLASH,
-        DYN_MACRO_PLAY1, KC_A,        KC_S,     KC_D,    KC_F,     KC_G,                                                                     KC_H, KC_J,  KC_K,     KC_L,        KC_SCOLON,   KC_MINUS,
-        DYN_MACRO_PLAY2, KC_Z,        KC_X,     KC_C,    KC_V,     KC_B, TT(KTTY),                                                KC_BSPACE, KC_N, KC_M,  KC_COMMA, KC_DOT,      KC_SLASH,    KC_EQUAL,
-        DYN_REC_STOP,    TD(TD_GESC), KC_QUOTE, KC_LEFT, KC_RIGHT,                                                                                 KC_UP, KC_DOWN,  KC_LBRACKET, KC_RBRACKET, ALTCASE,
-                                                                         MT(MOD_HYPR, KC_CAPSLOCK),   KC_LGUI, KC_RGUI,           KC_MEH,
-                                                                                                      KC_LALT, RALT_T(KC_DELETE),
-                                                                         KC_SPACE,    LCTL_T(KC_TAB), KC_LSPO, KC_RSPC,           RCTL_T(KC_ENTER), KC_SPACE
+        RGB_HUI,         KC_1,        KC_2,     KC_3,    KC_4,     KC_5, RGB_MOD,                                   TG(ARRW),  KC_6, KC_7,  KC_8,     KC_9,        KC_0,        RALT(RCTL(KC_DELETE)),
+        RGB_HUD,         KC_Q,        KC_W,     KC_E,    KC_R,     KC_T, TT(FNCT),                                  TG(MOUS),  KC_Y, KC_U,  KC_I,     KC_O,        KC_P,        KC_BSLASH,
+        DYN_MACRO_PLAY1, KC_A,        KC_S,     KC_D,    KC_F,     KC_G,                                                       KC_H, KC_J,  KC_K,     KC_L,        KC_SCOLON,   KC_MINUS,
+        DYN_MACRO_PLAY2, KC_Z,        KC_X,     KC_C,    KC_V,     KC_B, TT(KTTY),                                  KC_BSPACE, KC_N, KC_M,  KC_COMMA, KC_DOT,      KC_SLASH,    KC_EQUAL,
+        DYN_REC_STOP,    TD(TD_GESC), KC_QUOTE, KC_LEFT, KC_RIGHT,                                                                   KC_UP, KC_DOWN,  KC_LBRACKET, KC_RBRACKET, ALTCASE,
+                                                                         KC_HYPR,  KC_LGUI,         KC_RGUI,        KC_MEH,
+                                                                                   LALT_T(KC_CAPS), RALT_T(KC_DEL),
+                                                        KC_SPACE, LCTL_T(KC_TAB),  KC_LSPO,         KC_RSPC,        RCTL_T(KC_ENTER), KC_SPACE
   ),
 
 /* Keymap 1: Function layer
@@ -72,9 +72,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |RecStp|      |      |      |      |                                       |      |      |      |      |Stop Fx |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |CAP/Hy| LWin |       | RWin |  Meh   |
+ *                                        |Hyper | LWin |       | RWin |  Meh   |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      |Esc/LA|       |Del/RA|        |      |
+ *                                 |      |      |Cap/LA|       |Del/RA|        |      |
  *                                 |Space |Tab/  |------|       |------| Enter/ |Space |
  *                                 |      |LCtrl |Shift(|       |Shift)| RCtrl  |      |
  *                                 `--------------------'       `----------------------'
@@ -104,9 +104,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |CAP/Hy| LWin |       | RWin |Button 5|
+ *                                        |Hyper | LWin |       | RWin |Button 5|
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      |Esc/LA|       |Butt 4|        |      |
+ *                                 |      |      |Cap/LA|       |Butt 4|        |      |
  *                                 |Space |Tab/  |------|       |------| RClick |LClick|
  *                                 |      |LCtrl |Shift(|       |MClick|        |      |
  *                                 `--------------------'       `----------------------'
@@ -136,9 +136,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |RecStp|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |CAP/Hy| LWin |       | RWin |  Meh   |
+ *                                        |Hyper | LWin |       | RWin |  Meh   |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      |Esc/LA|       |Del/RA|        |      |
+ *                                 |      |      |Cap/LA|       |Del/RA|        |      |
  *                                 |Space |Tab/  |------|       |------| Enter/ |Space |
  *                                 |      |LCtrl |Shift(|       |Shift)| RCtrl  |      |
  *                                 `--------------------'       `----------------------'
@@ -168,9 +168,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |RecStp|  `*  |  '"  | Left*|Right*|                                       |  Up* | Down*|   [* |   ]* |ALTCASE |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |CAP/Hy| LWin |       | RWin |  Meh   |
+ *                                        |Hyper | LWin |       | RWin |  Meh   |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      |Esc/LA|       |Del/RA|        |      |
+ *                                 |      |      |Cap/LA|       |Del/RA|        |      |
  *                                 |Space |Tab/  |------|       |------| Enter/ |Space |
  *                                 |      |LCtrl |Shift(|       |Shift)| RCtrl  |      |
  *                                 `--------------------'       `----------------------'
@@ -193,7 +193,6 @@ extern rgb_config_t rgb_matrix_config;
 
 void keyboard_post_init_user(void) {
     rgb_matrix_enable_noeeprom();
-    // rgb_matrix_sethsv_noeeprom(215, 255, 255);
     rgb_matrix_sethsv_noeeprom(HSV_MAGENTA);
     rgb_matrix_mode_noeeprom(RGB_MATRIX_MULTISPLASH);
 }
