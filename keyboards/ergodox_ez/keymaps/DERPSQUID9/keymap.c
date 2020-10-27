@@ -195,6 +195,7 @@ void keyboard_post_init_user(void) {
     rgb_matrix_enable_noeeprom();
     rgb_matrix_sethsv_noeeprom(HSV_MAGENTA);
     rgb_matrix_mode_noeeprom(RGB_MATRIX_MULTISPLASH);
+    rgb_matrix_set_speed_noeeprom(60);
 }
 
 // clang-format off
@@ -319,7 +320,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case RGB_SLD:
             if (record->event.pressed) {
-                rgblight_mode(1);
+                rgblight_mode(RGB_MATRIX_SOLID_COLOR);
             }
             return false;
     }
