@@ -5,6 +5,7 @@
 #define ORYX_CONFIGURATOR
 #define RGB_MATRIX_STARTUP_SPD 60
 #define RGB_MATRIX_KEYPRESSES
+#define FORCE_NKRO
 
 // Get rid of undesired animations
 #define DISABLE_RGB_MATRIX_ALPHAS_MODS
