@@ -15,3 +15,4 @@ CONSOLE_ENABLE = no        # Disable debugging output
 COMMAND_ENABLE = no        # Disable command
 RGBLIGHT_ENABLE = no       # Disable RGB Light (RGB Matrix is already in use)
 SWAP_HANDS_ENABLE = no     # Disable Swap Hands
+EXTRAKEY_ENABLE = no       # Disable system and audio control keys.
