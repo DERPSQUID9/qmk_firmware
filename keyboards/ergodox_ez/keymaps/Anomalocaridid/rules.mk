@@ -5,7 +5,6 @@
 LTO_ENABLE = yes           # Enable Link Time Optimization
 DYNAMIC_MACRO_ENABLE = yes # Enable Dynamic Macros
 RGB_MATRIX_ENABLE = yes    # Enable RGB Matrix
-TAP_DANCE_ENABLE = yes     # Enable Tap Dance
 
 # Disable Unused/Unwanted Features
 COMMAND_ENABLE = no        # Disable debugging commands

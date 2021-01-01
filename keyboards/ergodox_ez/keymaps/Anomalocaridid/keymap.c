@@ -10,18 +10,7 @@ enum layers {
 };
 
 enum custom_keycodes {
-    RGB_SLD = EZ_SAFE_RANGE,
-    ALTCASE,
-};
-
-enum tap_dance {
-    TD_GESC,
-};
-
-// Tap Dance definitions
-qk_tap_dance_action_t tap_dance_actions[] = {
-    // Tap once for Escape, twice for grave
-    [TD_GESC] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_GRAVE),
+    ALTCASE = EZ_SAFE_RANGE,
 };
 
 // clang-format off
@@ -29,15 +18,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Base layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Hue++  |   1  |   2  |   3  |   4  |   5  |      |           | ARRW |   6  |   7  |   8  |   9  |   0  |        |
+ * |        |   1  |   2  |   3  |   4  |   5  |NextFX|           | ARRW |   6  |   7  |   8  |   9  |   0  |ALTCASE |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Sat++  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * |        |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Value++ |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   -    |
+ * |        |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   -    |
  * |--------+------+------+------+------+------| KTTY |           |Delete|------+------+------+------+------+--------|
- * |Speed++ |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
+ * |        |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |NextFx|ESC/~`|  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
+ *   | ESC  |  ~`  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |        |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |Hyper |L Win |       |R Win |  Meh   |
@@ -48,28 +37,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
     [BASE] = LAYOUT_ergodox_pretty(
-        RGB_HUI, KC_1,        KC_2,    KC_3,    KC_4,    KC_5, XXXXXXX,                            TG(ARRW), KC_6, KC_7,  KC_8,    KC_9,    KC_0,    XXXXXXX,
-        RGB_SAI, KC_Q,        KC_W,    KC_E,    KC_R,    KC_T, TT(FNCT),                           TG(MOUS), KC_Y, KC_U,  KC_I,    KC_O,    KC_P,    KC_BSLS,
-        RGB_VAI, KC_A,        KC_S,    KC_D,    KC_F,    KC_G,                                               KC_H, KC_J,  KC_K,    KC_L,    KC_SCLN, KC_MINUS,
-        RGB_SPI, KC_Z,        KC_X,    KC_C,    KC_V,    KC_B, TT(KTTY),                           KC_DEL,   KC_N, KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
-        RGB_MOD, TD(TD_GESC), KC_QUOT, KC_LEFT, KC_RGHT,                                                           KC_UP, KC_DOWN, KC_LBRC, KC_RBRC, ALTCASE,
-                                                               KC_HYPR,  KC_LGUI,         KC_RGUI, KC_MEH,
-                                                                         LALT_T(KC_CAPS), KC_RALT,
-                                              KC_SPACE, LCTL_T(KC_TAB),  KC_LSPO,         KC_RSPC, RCTL_T(KC_ENTER), KC_BSPC
+        XXXXXXX, KC_1,   KC_2,    KC_3,    KC_4,    KC_5, RGB_MOD,                            TG(ARRW), KC_6, KC_7,  KC_8,    KC_9,    KC_0,    ALTCASE,
+        XXXXXXX, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T, TT(FNCT),                           TG(MOUS), KC_Y, KC_U,  KC_I,    KC_O,    KC_P,    KC_BSLS,
+        XXXXXXX, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                                               KC_H, KC_J,  KC_K,    KC_L,    KC_SCLN, KC_MINUS,
+        XXXXXXX, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, TT(KTTY),                           KC_DEL,   KC_N, KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
+        KC_ESC,  KC_GRV, KC_QUOT, KC_LEFT, KC_RGHT,                                                           KC_UP, KC_DOWN, KC_LBRC, KC_RBRC, XXXXXXX,
+                                                          KC_HYPR,  KC_LGUI,         KC_RGUI, KC_MEH,
+                                                                    LALT_T(KC_CAPS), KC_RALT,
+                                         KC_SPACE, LCTL_T(KC_TAB),  KC_LSPO,         KC_RSPC, RCTL_T(KC_ENTER), KC_BSPC
   ),
 
 /* Keymap 1: Function layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |Mac1Rec |  F1  |  F2  |  F3  |  F4  |  F5  |      |           | ARRW |  F6  |  F7  |  F8  |  F9  |  F10 |        |
+ * |Mac1Rec |  F1  |  F2  |  F3  |  F4  |  F5  |NextFX|           | ARRW |  F6  |  F7  |  F8  |  F9  |  F10 | Reset  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |Mac2Rec |  F11 |  F12 |  F13 |  F14 |  F15 | FNCT |           | MOUS |  F16 |  F17 |  F18 |  F19 |  F20 |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Mac1Play|  F21 |  F22 |  F23 |  F24 |      |------|           |------|      |      |      |      |      |        |
+ * |Mac1Play|  F21 |  F22 |  F23 |  F24 |      |------|           |------|      |      |      |      |      | Hue++  |
  * |--------+------+------+------+------+------| KTTY |           |Delete|------+------+------+------+------+--------|
- * |Mac2Play|      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |Mac2Play|      |      |      |      |      |      |           |      |      |      |      |      |      |Speed++ |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|      |      |      |      |                                       |      |      |      |      |Stop Fx |
+ *   |RecStp|      |      |      |      |                                       |      |      |      |      |TogglRGB|
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |Hyper |L Win |       |R Win |  Meh   |
@@ -82,9 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [FNCT] = LAYOUT_ergodox_pretty(
         DM_REC1, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,                   _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  RESET,
         DM_REC2, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  _______,                   _______, KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
-        DM_PLY1, KC_F21,  KC_F22,  KC_F23,  KC_F24,  XXXXXXX,                                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        DM_PLY2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        DM_RSTP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_SLD,
+        DM_PLY1, KC_F21,  KC_F22,  KC_F23,  KC_F24,  XXXXXXX,                                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_HUI,
+        DM_PLY2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_SPI,
+        DM_RSTP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG,
                                                               _______, _______, _______, _______,
                                                                        _______, _______,
                                                      _______, _______, _______, _______, _______, _______
@@ -93,15 +82,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 2: Mouse layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Hue++  |   1  |   2  |   3  |   4  |   5  |      |           | ARRW |   6  |   7  |   8  |   9  |   0  |        |
+ * |        |   1  |   2  |   3  |   4  |   5  |      |           | ARRW |   6  |   7  |   8  |   9  |   0  |ALTCASE |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Sat++  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |W Left|W Down| W Up |WRight|   P  |   \    |
+ * |        |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |W Left|W Down| W Up |WRight|   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Value++ |   A  |   S  |   D  |   F  |   G  |------|           |------| Left | Down |  Up  |Right |   ;  |   -    |
+ * |        |   A  |   S  |   D  |   F  |   G  |------|           |------| Left | Down |  Up  |Right |   ;  |   -    |
  * |--------+------+------+------+------+------| KTTY |           |Delete|------+------+------+------+------+--------|
- * |Speed++ |   Z  |   X  |   C  |   V  |   B  |      |           |      |M Left|M Down| M Up |MRight|   /  |   =    |
+ * |        |   Z  |   X  |   C  |   V  |   B  |      |           |      |M Left|M Down| M Up |MRight|   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |NextFx|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
+ *   | ESC  |  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |        |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |Hyper |L Win |       |R Win |Button 5|
@@ -125,15 +114,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 3: Arrow layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Hue++  |   1  |   2  |   3  |   4  |   5  |      |           | ARRW |   6  |   7  |   8  |   9  |   0  |        |
+ * |        |   1  |   2  |   3  |   4  |   5  |NextFX|           | ARRW |   6  |   7  |   8  |   9  |   0  |ALTCASE |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Sat++  |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |  Up  |   O  |   P  |   \    |
+ * |        |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |  Up  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Value++ |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  | Left | Down |Right |   ;  |   -    |
+ * |        |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  | Left | Down |Right |   ;  |   -    |
  * |--------+------+------+------+------+------| KTTY |           |Delete|------+------+------+------+------+--------|
- * |Speed++ |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
+ * |        |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |NextFx|  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |ALTCASE |
+ *   | ESC  |  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |        |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |Hyper |L Win |       |R Win |  Meh   |
@@ -157,15 +146,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 4: Kitty layer
  * An asterisk (*) means CTRL+SHIFT+<key> where <key> is the key's value
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Hue++  |   1* |   2* |   3* |   4* |   5* | F2*  |           |Alt-T*|   6* |   7* |   8* |   9* |   0* |        |
+ * |        |   1* |   2* |   3* |   4* |   5* | F2*  |           |Alt-T*|   6* |   7* |   8* |   9* |   0* |ALTCASE |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Hue--  |   Q* |   W* |   E* |   R  |   T* | Esc* |           |Enter*|   Y  |   U* |   I  |   O* |   P  |   \    |
+ * |        |   Q* |   W* |   E* |   R  |   T* | FNCT |           |Enter*|   Y  |   U* |   I  |   O* |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Value++ |   A  |   S* |   D  |   F* |   G  |------|           |------|   H  |   J  |   K  |   L* |   ;  |   -    |
- * |--------+------+------+------+------+------| TT 5 |           |Delete|------+------+------+------+------+--------|
- * |Speed++ |   Z  |   X  |   C* |   V* |   B* |      |           |      |   N* |   M  |   ,* |   .* |   /  |   =    |
+ * |        |   A  |   S* |   D  |   F* |   G  |------|           |------|   H  |   J  |   K  |   L* |   ;  |   -    |
+ * |--------+------+------+------+------+------| KTTY |           |Delete|------+------+------+------+------+--------|
+ * |        |   Z  |   X  |   C* |   V* |   B* |      |           |      |   N* |   M  |   ,* |   .* |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |NextFx|  `*  |  '"  | Left*|Right*|                                       |  Up* | Down*|   [* |   ]* |ALTCASE |
+ *   | ESC* |  `*  |  '"  | Left*|Right*|                                       |  Up* | Down*|   [* |   ]* |        |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |Hyper |L Win |       |R Win |  Meh   |
@@ -176,14 +165,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
     [KTTY] = LAYOUT_ergodox_pretty(
-        _______, RCS(KC_1),    RCS(KC_2), RCS(KC_3),    RCS(KC_4),     RCS(KC_5), RCS(KC_F2),                MEH(KC_T),     RCS(KC_6),  RCS(KC_7),    RCS(KC_8),        RCS(KC_9),        RCS(KC_0), _______,
-        _______, RCS(KC_Q),    RCS(KC_W), RCS(KC_E),    _______,       RCS(KC_T), RCS(KC_ESCAPE),            RCS(KC_ENTER), _______,    RCS(KC_U),    _______,          RCS(KC_O),        _______,   _______,
-        _______, _______,      RCS(KC_S), _______,      RCS(KC_F),     _______,                                             _______,    _______,      _______,          RCS(KC_L),        _______,   _______,
-        _______, _______,      _______,   RCS(KC_C),    RCS(KC_V),     RCS(KC_B), _______,                   _______,       RCS(KC_N),  _______,      RCS(KC_COMMA),    RCS(KC_DOT),      _______,   _______,
-        _______, RCS(KC_GRAVE), _______,  RCS(KC_LEFT), RCS(KC_RIGHT),                                                      RCS(KC_UP), RCS(KC_DOWN), RCS(KC_LBRACKET), RCS(KC_RBRACKET), _______,
-                                                                                  _______, _______, _______, _______,
-                                                                                           _______, _______,
-                                                                         _______, _______, _______, _______, _______, _______
+        _______,        RCS(KC_1),     RCS(KC_2), RCS(KC_3),    RCS(KC_4),     RCS(KC_5), RCS(KC_F2),                MEH(KC_T),     RCS(KC_6),  RCS(KC_7),    RCS(KC_8),        RCS(KC_9),        RCS(KC_0), _______,
+        _______,        RCS(KC_Q),     RCS(KC_W), RCS(KC_E),    _______,       RCS(KC_T), _______,                   RCS(KC_ENTER), _______,    RCS(KC_U),    _______,          RCS(KC_O),        _______,   _______,
+        _______,        _______,       RCS(KC_S), _______,      RCS(KC_F),     _______,                                             _______,    _______,      _______,          RCS(KC_L),        _______,   _______,
+        _______,        _______,       _______,   RCS(KC_C),    RCS(KC_V),     RCS(KC_B), _______,                   _______,       RCS(KC_N),  _______,      RCS(KC_COMMA),    RCS(KC_DOT),      _______,   _______,
+        RCS(KC_ESCAPE), RCS(KC_GRAVE), _______,   RCS(KC_LEFT), RCS(KC_RIGHT),                                                      RCS(KC_UP), RCS(KC_DOWN), RCS(KC_LBRACKET), RCS(KC_RBRACKET), _______,
+                                                                               _______, _______, _______, _______,
+                                                                                        _______, _______,
+                                                                      _______, _______, _______, _______, _______, _______
   ),
 };
 // clang-format on
@@ -316,11 +305,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 alt_case_toggle = !alt_case_toggle;
                 alt_case_shift  = false;
-            }
-            return false;
-        case RGB_SLD:
-            if (record->event.pressed) {
-                rgblight_mode(RGB_MATRIX_SOLID_COLOR);
             }
             return false;
     }
