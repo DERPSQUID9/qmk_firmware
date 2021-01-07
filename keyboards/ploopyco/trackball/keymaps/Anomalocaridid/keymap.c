@@ -23,6 +23,7 @@ bool is_drag_scroll = false;
 enum layers {
     BASE,  // default layer
     DRAG,  // drag scroll layer
+    SCRL,  // horizontal scroll button layer
 };
 
 enum custom_keycodes {
@@ -63,11 +64,17 @@ void process_mouse_user(report_mouse_t* mouse_report, int16_t x, int16_t y) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT( /* Base */
         KC_BTN1, KC_BTN3, KC_BTN2, // Primary Buttons
-        KC_BTN4, LT(1, KC_BTN5)    // Secondary Buttons
+        MO(SCRL), MO(DRAG)         // Secondary Buttons
     ),
+
     [DRAG] = LAYOUT(
         DRAG_SCROLL, _______, RESET,
         _______, _______
-    )
+    ),
+
+    [SCRL] = LAYOUT(
+        KC_WH_L, _______, KC_WH_R,
+        _______, _______
+    ),
 };
 // clang-format on
