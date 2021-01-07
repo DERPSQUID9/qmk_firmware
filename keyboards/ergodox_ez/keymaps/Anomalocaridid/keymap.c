@@ -273,22 +273,12 @@ void rgb_matrix_indicators_user(void) {
     if (g_suspend_state || keyboard_config.disable_layer_led) {
         return;
     }
-    switch (biton32(layer_state)) {
-        case FNCT:
-            set_layer_color(FNCT);
-            break;
-        case MOUS:
-            set_layer_color(MOUS);
-            break;
-        case ARRW:
-            set_layer_color(ARRW);
-            break;
-        case KTTY:
-            set_layer_color(KTTY);
-            break;
-        default:
-            if (rgb_matrix_get_flags() == LED_FLAG_NONE) rgb_matrix_set_color_all(0, 0, 0);
-            break;
+
+    if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
+        rgb_matrix_set_color_all(0, 0, 0);
+    } else {
+        uint8_t layer = biton32(layer_state);
+        set_layer_color(layer);
     }
 }
 
