@@ -231,7 +231,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
         HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_PURPLE,  HSV_PURPLE,  HSV_PURPLE,  HSV_PURPLE,  HSV_OFF,
         HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_BLUE,    HSV_BLUE,    HSV_BLUE,    HSV_BLUE,    HSV_OFF,
         HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,                              HSV_OFF,     HSV_OFF,     HSV_OFF,     HSV_OFF
-    ),     
+    ),
 
     [ARRW] = LED_LAYOUT_ergodox_ez_pretty(
         HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,
@@ -274,10 +274,9 @@ void rgb_matrix_indicators_user(void) {
         return;
     }
 
-    if (rgb_matrix_get_flags() == LED_FLAG_NONE) {
-        rgb_matrix_set_color_all(0, 0, 0);
-    } else {
-        uint8_t layer = biton32(layer_state);
+    uint8_t layer = biton32(layer_state);
+
+    if (layer > BASE) {
         set_layer_color(layer);
     }
 }
@@ -345,3 +344,32 @@ uint32_t layer_state_set_user(uint32_t state) {
     }
     return state;
 };
+
+// Everything below this line enables a blinking red LED
+// When a dynamic macro is being recorded
+static bool     is_dynamic_recording = false;
+static uint16_t dynamic_loop_timer;
+
+void dynamic_macro_record_start_user(void) {
+    is_dynamic_recording = true;
+    dynamic_loop_timer   = timer_read();
+    ergodox_right_led_1_on();
+}
+
+void dynamic_macro_record_end_user(int8_t direction) {
+    is_dynamic_recording = false;
+    layer_state_set_user(layer_state);
+}
+
+void matrix_scan_user(void) {
+    if (is_dynamic_recording) {
+        ergodox_right_led_1_off();
+
+        static uint8_t counter;
+        counter++;
+        if (counter > 100) {
+            ergodox_right_led_1_on();
+        }
+        dynamic_loop_timer = timer_read();
+    }
+}
