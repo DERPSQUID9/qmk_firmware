@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_BTN4, LT(1, KC_BTN5)    // Secondary Buttons
     ),
     [DRAG] = LAYOUT(
-        DRAG_SCROLL, _______, _______,
+        DRAG_SCROLL, _______, RESET,
         _______, _______
     )
 };
