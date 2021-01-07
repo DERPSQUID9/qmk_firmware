@@ -3,7 +3,6 @@
 
 # Enable desired features
 LTO_ENABLE = yes     # Enable Link Time Optimization
-MOUSEKEY_ENABLE = yes # Enable mouse keys
 
 # Disable unused/unwanted features
 CONSOLE_ENABLE = no  # Disable debugging console
