@@ -30,6 +30,25 @@ enum custom_keycodes {
     DRAG_SCROLL = PLOOPY_SAFE_RANGE,
 };
 
+// clang-format off
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [BASE] = LAYOUT( /* Base */
+        KC_BTN1, KC_BTN3, KC_BTN2, // Primary Buttons
+        MO(SCRL), MO(DRAG)         // Secondary Buttons
+    ),
+
+    [DRAG] = LAYOUT(
+        DRAG_SCROLL, _______, RESET,
+        _______, _______
+    ),
+
+    [SCRL] = LAYOUT(
+        KC_WH_L, _______, KC_WH_R,
+        _______, _______
+    ),
+};
+
+// clang-format on
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
         case DRAG_SCROLL:
@@ -59,22 +78,3 @@ void process_mouse_user(report_mouse_t* mouse_report, int16_t x, int16_t y) {
         mouse_report->y = y;
     }
 }
-
-// clang-format off
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [BASE] = LAYOUT( /* Base */
-        KC_BTN1, KC_BTN3, KC_BTN2, // Primary Buttons
-        MO(SCRL), MO(DRAG)         // Secondary Buttons
-    ),
-
-    [DRAG] = LAYOUT(
-        DRAG_SCROLL, _______, RESET,
-        _______, _______
-    ),
-
-    [SCRL] = LAYOUT(
-        KC_WH_L, _______, KC_WH_R,
-        _______, _______
-    ),
-};
-// clang-format on
