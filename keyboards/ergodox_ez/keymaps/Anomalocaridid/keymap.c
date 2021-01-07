@@ -298,13 +298,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (alt_case_shift) {
                     set_oneshot_mods(get_oneshot_mods() | MOD_MASK_SHIFT);
                 }
-                alt_case_shift = !alt_case_shift;
+                alt_case_shift ^= 1;
             }
             return true;
         case ALTCASE:
             if (record->event.pressed) {
-                alt_case_toggle = !alt_case_toggle;
-                alt_case_shift  = false;
+                alt_case_toggle ^= 1;
+                alt_case_shift = false;
             }
             return false;
     }
