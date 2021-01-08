@@ -347,19 +347,14 @@ uint32_t layer_state_set_user(uint32_t state) {
 
 // Everything below this line enables a blinking red LED
 // When a dynamic macro is being recorded
-static bool     is_dynamic_recording = false;
-static uint16_t dynamic_loop_timer;
+static bool is_dynamic_recording = false;
 
 void dynamic_macro_record_start_user(void) {
     is_dynamic_recording = true;
-    dynamic_loop_timer   = timer_read();
     ergodox_right_led_1_on();
 }
 
-void dynamic_macro_record_end_user(int8_t direction) {
-    is_dynamic_recording = false;
-    layer_state_set_user(layer_state);
-}
+void dynamic_macro_record_end_user(int8_t direction) { is_dynamic_recording = false; }
 
 void matrix_scan_user(void) {
     if (is_dynamic_recording) {
@@ -367,9 +362,9 @@ void matrix_scan_user(void) {
 
         static uint8_t counter;
         counter++;
+
         if (counter > 100) {
             ergodox_right_led_1_on();
         }
-        dynamic_loop_timer = timer_read();
     }
 }
