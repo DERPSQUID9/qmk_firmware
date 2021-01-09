@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [XTRA] = LAYOUT(
-        KC_BTN4, _______, KC_BTN5,
+        KC_BTN4, DPI_CONFIG, KC_BTN5,
         _______, _______
     ),
 };
