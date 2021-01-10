@@ -17,9 +17,6 @@
  */
 #include QMK_KEYBOARD_H
 
-// used for tracking the state
-bool is_drag_scroll = false;
-
 enum layers {
     BASE,  // default layer
     DRAG,  // drag scroll layer
@@ -48,6 +45,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+extern uint16_t dpi_array[];
+
+// used for tracking the state
+bool is_drag_scroll = false;
+
+#define DRAG_SCROLL_SPEED 0.1
+
 // clang-format on
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
@@ -55,6 +59,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             if (record->event.pressed) {
                 // this toggles the state each time you tap it
                 is_drag_scroll ^= 1;
+                // sets dpi to a comfortable level
+                pmw_set_cpi(dpi_array[keyboard_config.dpi_config] * (is_drag_scroll ? DRAG_SCROLL_SPEED : 1));
             }
             break;
     }
