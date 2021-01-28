@@ -53,6 +53,7 @@ doxygen/
 .clangd
 compile_commands.json
 compile_commands.commands.json
+.cache/
 # Let these ones be user specific, since we have so many different configurations
 *.code-workspace
 .vscode/c_cpp_properties.json
