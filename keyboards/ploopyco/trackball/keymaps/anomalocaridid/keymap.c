@@ -23,9 +23,9 @@ enum layers {
     XTRA,  // extra mouse buttons
 };
 
-enum custom_keycodes {
-    DRAG_SCROLL = PLOOPY_SAFE_RANGE,
-};
+// enum custom_keycodes {
+//     CUSTOM_KC = PLOOPY_SAFE_RANGE,
+// };
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -47,40 +47,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 extern uint16_t dpi_array[];
 
-// used for tracking the state
-bool is_drag_scroll = false;
-
-#define DRAG_SCROLL_SPEED 0.1
-
 // clang-format on
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    switch (keycode) {
-        case DRAG_SCROLL:
-            if (record->event.pressed) {
-                // this toggles the state each time you tap it
-                is_drag_scroll ^= 1;
-                // sets dpi to a comfortable level
-                pmw_set_cpi(dpi_array[keyboard_config.dpi_config] * (is_drag_scroll ? DRAG_SCROLL_SPEED : 1));
-            }
-            break;
-    }
-    return true;
-}
+// bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+//     switch (keycode) {
+//         case CUSTOM_KC:
+//             break;
+//     }
+//     return true;
+// }
 
-// The real magic is here.
-// This function is called to translate the processed sensor movement
-// from the mouse sensor and translates it into x and y movement for
-// the mouse report. Normally.  So if "drag scroll" is toggled on,
-// moving the ball scrolls instead.  You could remove the  x or y here
-//  to only scroll in one direction, if you wanted, as well. In fact,
-// there is no reason that you need to send this to the mouse report.
-// You could have it register a key, instead.
-void process_mouse_user(report_mouse_t* mouse_report, int16_t x, int16_t y) {
-    if (is_drag_scroll) {
-        mouse_report->h = x;
-        mouse_report->v = -y;
-    } else {
-        mouse_report->x = x;
-        mouse_report->y = y;
-    }
-}
+// void process_mouse_user(report_mouse_t* mouse_report, int16_t x, int16_t y) {}
