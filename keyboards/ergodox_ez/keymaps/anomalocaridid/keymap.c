@@ -10,7 +10,8 @@ enum layers {
 };
 
 enum custom_keycodes {
-    ALTCASE = EZ_SAFE_RANGE,
+    VRSN = EZ_SAFE_RANGE,
+    ALTCASE,
 };
 
 // clang-format off
@@ -41,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_END,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T, TT(FNCT),                  TG(MOUS), KC_Y, KC_U,  KC_I,    KC_O,    KC_P,    KC_BSLS,
         KC_PGUP, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                                      KC_H, KC_J,  KC_K,    KC_L,    KC_SCLN, KC_MINUS,
         KC_PGDN, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, TT(KTTY),                  KC_DEL,   KC_N, KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
-        KC_ESC,  KC_GRV, KC_QUOT, KC_LEFT, KC_RGHT,                                                  KC_UP, KC_DOWN, KC_LBRC, KC_RBRC, XXXXXXX,
+        KC_ESC,  KC_GRV, KC_QUOT, KC_LEFT, KC_RGHT,                                                  KC_UP, KC_DOWN, KC_LBRC, KC_RBRC, VRSN,
                                                           KC_LALT, KC_LGUI, KC_RGUI, KC_RALT,
                                                                    KC_LCTL, KC_RCTL,
                                                 KC_SPACE, KC_TAB,  KC_LSPO, KC_RSPC, KC_ENTER, KC_BSPC
@@ -294,6 +295,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 alt_case_shift ^= 1;
             }
             return true;
+        case VRSN:
+            if (record->event.pressed) {
+                SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+            }
+            return false;
         case ALTCASE:
             if (record->event.pressed) {
                 alt_case_toggle ^= 1;
