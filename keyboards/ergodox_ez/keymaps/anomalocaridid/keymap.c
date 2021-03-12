@@ -10,8 +10,9 @@ enum layers {
 };
 
 enum custom_keycodes {
-    VRSN = EZ_SAFE_RANGE,
-    ALTCASE,
+    VRSN = EZ_SAFE_RANGE,  // Type version info
+    FLASH,                 // Type command to flash keyboard
+    ALTCASE,               // Alternate uppercase and lowercase automatically
 };
 
 // clang-format off
@@ -71,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [FNCT] = LAYOUT_ergodox_pretty(
         DM_REC1, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,                   XXXXXXX, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  RESET,
-        DM_REC2, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  _______,                   XXXXXXX, KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  XXXXXXX,
+        DM_REC2, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  _______,                   XXXXXXX, KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  FLASH,
         DM_PLY1, KC_F21,  KC_F22,  KC_F23,  KC_F24,  XXXXXXX,                                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_HUI,
         DM_PLY2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_SPI,
         DM_RSTP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG,
@@ -298,6 +299,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case VRSN:
             if (record->event.pressed) {
                 SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+            }
+            return false;
+        case FLASH:
+            if (record->event.pressed) {
+                SEND_STRING("qmk flash -kb " QMK_KEYBOARD " -km " QMK_KEYMAP);
             }
             return false;
         case ALTCASE:

@@ -23,9 +23,9 @@ enum layers {
     XTRA,  // extra mouse buttons
 };
 
-// enum custom_keycodes {
-//     CUSTOM_KC = PLOOPY_SAFE_RANGE,
-// };
+enum custom_keycodes {
+    FLASH = PLOOPY_SAFE_RANGE,
+};
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [DRAG] = LAYOUT(
         DRAG_SCROLL, _______, RESET,
-        _______, _______
+        FLASH, _______
     ),
 
     [XTRA] = LAYOUT(
@@ -48,12 +48,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 extern uint16_t dpi_array[];
 
 // clang-format on
-// bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-//     switch (keycode) {
-//         case CUSTOM_KC:
-//             break;
-//     }
-//     return true;
-// }
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+    switch (keycode) {
+        case FLASH:
+            if (record->event.pressed) {
+                SEND_STRING("qmk flash -kb " QMK_KEYBOARD " -km " QMK_KEYMAP);
+            }
+            return false;
+    }
+    return true;
+}
 
 // void process_mouse_user(report_mouse_t* mouse_report, int16_t x, int16_t y) {}
