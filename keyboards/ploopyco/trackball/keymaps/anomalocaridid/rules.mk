@@ -7,3 +7,4 @@ LTO_ENABLE = yes     # Enable Link Time Optimization
 # Disable unused/unwanted features
 CONSOLE_ENABLE = no  # Disable debugging console
 EXTRAKEY_ENABLE = no # Disable system control keys
+MOUSEKEY_ENABLE = no
