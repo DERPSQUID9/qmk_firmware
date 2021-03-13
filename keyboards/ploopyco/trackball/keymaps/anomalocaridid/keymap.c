@@ -22,22 +22,23 @@
 
 enum layers {
     BASE,  // default layer
-    DRAG,  // drag scroll layer
+    SCRL,  // scroll modifier layer
     XTRA,  // extra mouse buttons
 };
 
-// enum custom_keycodes_keymap {// CUSTOM_KC = KEYMAP_SAFE_RANGE
-// };
+enum custom_keycodes_keymap {
+    HORI_SCROLL = KEYMAP_SAFE_RANGE,
+};
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT( /* Base */
         KC_BTN1, KC_BTN3, KC_BTN2, // Primary Buttons
-        MO(XTRA), MO(DRAG)         // Secondary Buttons
+        MO(XTRA), MO(SCRL)         // Secondary Buttons
     ),
 
-    [DRAG] = LAYOUT(
-        DRAG_SCROLL, _______, RESET,
+    [SCRL] = LAYOUT(
+        DRAG_SCROLL, HORI_SCROLL, RESET,
         FLASH, _______
     ),
 
@@ -49,13 +50,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 extern uint16_t dpi_array[];
 
-// clang-format on
-// bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-//     switch (keycode) {
-//         case CUSTOM_KC:
-//             return false;
-//     }
-//     return true;
-// }
+static bool horizontal_scroll = false;
 
-// void process_mouse_user(report_mouse_t* mouse_report, int16_t x, int16_t y) {}
+// clang-format on
+bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
+    switch (keycode) {
+        case HORI_SCROLL:
+            if (record->event.pressed) {
+                horizontal_scroll ^= 1;
+            }
+            return false;
+    }
+    return true;
+}
+
+void process_wheel_user(report_mouse_t* mouse_report, int16_t h, int16_t v) {
+    if (horizontal_scroll) {
+        mouse_report->h = -v;
+        mouse_report->v = h;
+    } else {
+        mouse_report->h = h;
+        mouse_report->v = v;
+    }
+}
