@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+#include "version.h"
 
 enum layers {
     BASE,  // default layer
@@ -24,7 +25,8 @@ enum layers {
 };
 
 enum custom_keycodes {
-    FLASH = PLOOPY_SAFE_RANGE,
+    VRSN = PLOOPY_SAFE_RANGE,  // Type version info
+    FLASH,                     // Type command for flashing device
 };
 
 // clang-format off
@@ -41,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [XTRA] = LAYOUT(
         KC_BTN4, DPI_CONFIG, KC_BTN5,
-        _______, _______
+        _______, VRSN
     ),
 };
 
@@ -50,6 +52,11 @@ extern uint16_t dpi_array[];
 // clang-format on
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
+        case VRSN:
+            if (record->event.pressed) {
+                SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+            }
+            return false;
         case FLASH:
             if (record->event.pressed) {
                 SEND_STRING("qmk flash -kb " QMK_KEYBOARD " -km " QMK_KEYMAP);
