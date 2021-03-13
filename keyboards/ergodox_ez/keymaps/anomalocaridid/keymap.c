@@ -1,5 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
+// userspace code
+#include "anomalocaridid.h"
 
 enum layers {
     BASE,  // default layer
@@ -9,10 +11,8 @@ enum layers {
     KTTY,  // Kitty hotkeys
 };
 
-enum custom_keycodes {
-    VRSN = EZ_SAFE_RANGE,  // Type version info
-    FLASH,                 // Type command to flash keyboard
-    ALTCASE,               // Alternate uppercase and lowercase automatically
+enum custom_keycodes_keymap {
+    ALTCASE = KEYMAP_SAFE_RANGE,  // Alternate uppercase and lowercase automatically
 };
 
 // clang-format off
@@ -286,7 +286,8 @@ void rgb_matrix_indicators_user(void) {
 static bool alt_case_toggle = false;
 static bool alt_case_shift  = false;
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case KC_A ... KC_Z:
             if (alt_case_toggle && record->event.pressed) {
@@ -296,16 +297,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 alt_case_shift ^= 1;
             }
             return true;
-        case VRSN:
-            if (record->event.pressed) {
-                SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
-            }
-            return false;
-        case FLASH:
-            if (record->event.pressed) {
-                SEND_STRING("qmk flash -kb " QMK_KEYBOARD " -km " QMK_KEYMAP);
-            }
-            return false;
         case ALTCASE:
             if (record->event.pressed) {
                 alt_case_toggle ^= 1;
