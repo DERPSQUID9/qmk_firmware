@@ -2,12 +2,15 @@
   Set any config.h overrides for your specific keymap here.
   See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
 */
-#define ORYX_CONFIGURATOR
+// Settings
 #define RGB_MATRIX_STARTUP_SPD 60
-#define RGB_MATRIX_KEYPRESSES
-#define FORCE_NKRO
 
-// Get rid of undesired animations
+// Enable desired features
+#define FORCE_NKRO
+#define ORYX_CONFIGURATOR
+#define RGB_MATRIX_KEYPRESSES
+
+// Disable undesired animations
 #define DISABLE_RGB_MATRIX_ALPHAS_MODS
 #define DISABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #define DISABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
