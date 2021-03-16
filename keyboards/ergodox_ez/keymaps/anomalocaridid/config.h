@@ -4,6 +4,8 @@
 */
 // Settings
 #define RGB_MATRIX_STARTUP_SPD 60
+#define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_MULTISPLASH
+#define RGB_MATRIX_STARTUP_HUE 213  // default hue is same as HSV_MAGENTA
 
 // Enable desired features
 #define FORCE_NKRO
