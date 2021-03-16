@@ -88,9 +88,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |  End   |   Q  |   W  |   E  |   R  |   T  |      |           | MOUS |W Left|W Down| W Up |WRight|   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Page Up |   A  |   S  |   D  |   F  |   G  |------|           |------| Left | Down |  Up  |Right |   ;  |   -    |
+ * |Page Up |   A  |   S  |   D  |   F  |   G  |------|           |------|M Left|M Down| M Up |MRight|   ;  |   -    |
  * |--------+------+------+------+------+------|      |           |Delete|------+------+------+------+------+--------|
- * |PageDown|   Z  |   X  |   C  |   V  |   B  |      |           |      |M Left|M Down| M Up |MRight|   /  |   =    |
+ * |PageDown|   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   | ESC  |  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |Version |
  *   `----------------------------------'                                       `----------------------------------'
@@ -105,8 +105,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MOUS] = LAYOUT_ergodox_pretty(
         _______, _______, _______, _______, _______, _______, _______,                   XXXXXXX, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, XXXXXXX,                   _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, _______,
-        _______, _______, _______, _______, _______, _______,                                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
-        _______, _______, _______, _______, _______, _______, XXXXXXX,                   _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
+        _______, _______, _______, _______, _______, _______,                                     KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
+        _______, _______, _______, _______, _______, _______, XXXXXXX,                   _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______,
                                                               _______, _______, _______, KC_BTN5,
                                                                        _______, KC_BTN4,
@@ -231,7 +231,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
         HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF,     HSV_OFF,     HSV_OFF,     HSV_OFF,     HSV_OFF,
         HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_MAGENTA, HSV_MAGENTA, HSV_MAGENTA, HSV_MAGENTA, HSV_OFF,
         HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_PURPLE,  HSV_PURPLE,  HSV_PURPLE,  HSV_PURPLE,  HSV_OFF,
-        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_BLUE,    HSV_BLUE,    HSV_BLUE,    HSV_BLUE,    HSV_OFF,
+        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF,     HSV_OFF,     HSV_OFF,     HSV_OFF,     HSV_OFF,
         HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,                              HSV_OFF,     HSV_OFF,     HSV_OFF,     HSV_OFF
     ),
 
