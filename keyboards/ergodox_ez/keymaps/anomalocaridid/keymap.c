@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        |L Ctrl|L Win |       |R Win |Butt 5|
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |Cap/LA|       |Butt 4|      |      |
- *                                 |Space | Tab  |------|       |------|RClick|LClick|
+ *                                 |Space | Tab  |------|       |------|LClick|RClick|
  *                                 |      |      |Shift(|       |MClick|      |      |
  *                                 `--------------------'       `--------------------'
  */
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______,
                                                               _______, _______, _______, KC_BTN5,
                                                                        _______, KC_BTN4,
-                                                     _______, _______, _______, KC_BTN3, KC_BTN2, KC_BTN1
+                                                     _______, _______, _______, KC_BTN3, KC_BTN1, KC_BTN2
   ),
 
 /* Keymap 3: Arrow layer
