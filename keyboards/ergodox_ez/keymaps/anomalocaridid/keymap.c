@@ -8,7 +8,6 @@ enum layers {
     FNCT,  // function keys
     MOUS,  // mouse keys
     ARRW,  // arrow keys
-    KTTY,  // shortcuts for the Kitty terminal emulator
 };
 
 enum custom_keycodes_keymap {
@@ -25,15 +24,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  End   |   Q  |   W  |   E  |   R  |   T  | FNCT |           | MOUS |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Page Up |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   -    |
- * |--------+------+------+------+------+------| KTTY |           |Delete|------+------+------+------+------+--------|
- * |PageDown|   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
+ * |--------+------+------+------+------+------| Caps |           |Delete|------+------+------+------+------+--------|
+ * |PageDown|   Z  |   X  |   C  |   V  |   B  | Lock |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   | ESC  |  ~`  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |Version |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |L Ctrl|L Win |       |R Win |R Ctrl|
+ *                                        |L Alt |L Win |       |R Win |R Alt|
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |Cap/LA|       |R Alt |      |      |
+ *                                 |      |      |L Ctrl|       |R Ctrl|      |      |
  *                                 |Space | Tab  |------|       |------|Enter |BackSp|
  *                                 |      |      |Shift(|       |Shift)|      |      |
  *                                 `--------------------'       `--------------------'
@@ -42,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_HOME, KC_1,   KC_2,    KC_3,    KC_4,    KC_5, RGB_MOD,                   TG(ARRW), KC_6, KC_7,  KC_8,    KC_9,    KC_0,    ALTCASE,
         KC_END,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T, TT(FNCT),                  TG(MOUS), KC_Y, KC_U,  KC_I,    KC_O,    KC_P,    KC_BSLS,
         KC_PGUP, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                                      KC_H, KC_J,  KC_K,    KC_L,    KC_SCLN, KC_MINUS,
-        KC_PGDN, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, TT(KTTY),                  KC_DEL,   KC_N, KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
+        KC_PGDN, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_CAPS,                   KC_DEL,   KC_N, KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
         KC_ESC,  KC_GRV, KC_QUOT, KC_LEFT, KC_RGHT,                                                  KC_UP, KC_DOWN, KC_LBRC, KC_RBRC, VRSN,
                                                           KC_LALT, KC_LGUI, KC_RGUI, KC_RALT,
                                                                    KC_LCTL, KC_RCTL,
@@ -57,15 +56,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |Mac2Rec |  F11 |  F12 |  F13 |  F14 |  F15 | FNCT |           |      |  F16 |  F17 |  F18 |  F19 |  F20 | Flash  |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Mac1Play|  F21 |  F22 |  F23 |  F24 |      |------|           |------|      |      |      |      |      |        |
- * |--------+------+------+------+------+------|      |           |Delete|------+------+------+------+------+--------|
- * |Mac2Play|      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+------| Caps |           |Delete|------+------+------+------+------+--------|
+ * |Mac2Play|      |      |      |      |      | Lock |           |      |      |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |RecStp|      |      |      |      |                                       |      |      |      |      |        |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |L Ctrl|L Win |       |R Win |R Ctrl|
+ *                                        |L Alt |L Win |       |R Win |R Alt|
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |Cap/LA|       |R Alt |      |      |
+ *                                 |      |      |L Ctrl|       |R Ctrl|      |      |
  *                                 |Space | Tab  |------|       |------|Enter |BackSp|
  *                                 |      |      |Shift(|       |Shift)|      |      |
  *                                 `--------------------'       `--------------------'
@@ -74,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         DM_REC1, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,                   XXXXXXX, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  RESET,
         DM_REC2, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  _______,                   XXXXXXX, KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  FLASH,
         DM_PLY1, KC_F21,  KC_F22,  KC_F23,  KC_F24,  XXXXXXX,                                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        DM_PLY2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        DM_PLY2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         DM_RSTP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                                               _______, _______, _______, _______,
                                                                        _______, _______,
@@ -89,15 +88,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  End   |   Q  |   W  |   E  |   R  |   T  |      |           | MOUS | W Up |W Left| M Up |WRight|   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Page Up |   A  |   S  |   D  |   F  |   G  |------|           |------|W Down|M Down| M Up |MRight|   ;  |   -    |
- * |--------+------+------+------+------+------|      |           |Delete|------+------+------+------+------+--------|
- * |PageDown|   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   /  |   =    |
+ * |--------+------+------+------+------+------| Caps |           |Delete|------+------+------+------+------+--------|
+ * |PageDown|   Z  |   X  |   C  |   V  |   B  | Lock |           |      |   N  |   M  |   ,  |   .  |   /  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   | ESC  |  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |Version |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |L Ctrl|L Win |       |R Win |Butt 5|
+ *                                        |L Alt |L Win |       |R Win |Butt 5|
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |Cap/LA|       |Butt 4|      |      |
+ *                                 |      |      |L Ctrl|       |Butt 4|      |      |
  *                                 |Space | Tab  |------|       |------|LClick|RClick|
  *                                 |      |      |Shift(|       |MClick|      |      |
  *                                 `--------------------'       `--------------------'
@@ -106,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______,                   XXXXXXX, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, XXXXXXX,                   _______, KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, _______, _______,
         _______, _______, _______, _______, _______, _______,                                     KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,
-        _______, _______, _______, _______, _______, _______, XXXXXXX,                   _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______,
                                                               _______, _______, _______, KC_BTN5,
                                                                        _______, KC_BTN4,
@@ -121,15 +120,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  End   |   Q  |   W  |   E  |   R  |   T  |      |           |      |   Y  |   U  |  Up  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Page Up |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  | Left | Down |Right |   ;  |   -    |
- * |--------+------+------+------+------+------|      |           |Delete|------+------+------+------+------+--------|
- * |PageDown|   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
+ * |--------+------+------+------+------+------| Caps |           |Delete|------+------+------+------+------+--------|
+ * |PageDown|   Z  |   X  |   C  |   V  |   B  | Lock |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   | ESC  |  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |Version |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |L Ctrl|L Win |       |R Win |R Ctrl|
+ *                                        |L Alt |L Win |       |R Win |R Alt |
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |Cap/LA|       |L Alt |      |      |
+ *                                 |      |      |L Alt |       |R Alt |      |      |
  *                                 |Space | Tab  |------|       |------|Enter |BackSp|
  *                                 |      |      |Shift(|       |Shift)|      |      |
  *                                 `--------------------'       `--------------------'
@@ -138,44 +137,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, XXXXXXX,                   XXXXXXX, _______, _______, KC_UP,   _______, _______, _______,
         _______, _______, _______, _______, _______, _______,                                     _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-        _______, _______, _______, _______, _______, _______, XXXXXXX,                   _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______,
                                                               _______, _______, _______, _______,
                                                                        _______, _______,
                                                      _______, _______, _______, _______, _______, _______
   ),
 
-/* Keymap 4: Shortcuts for the Kitty terminal emulator
- * An asterisk (*) means CTRL+SHIFT+<key> where <key> is the key's value
- * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |  Home  |   1* |   2* |   3* |   4* |   5* |NextFX|           |Alt-T*|   6* |   7* |   8* |   9* |   0* |ALTCASE |
- * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |  End   |   Q* |   W* |   E* |   R  |   T* | F2*  |           |Enter*|   Y  |   U* |   I  |   O* |   P  |   \    |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |Page Up |   A  |   S* |   D  |   F* |   G  |------|           |------|   H  |   J  |   K  |   L* |   ;  |   -    |
- * |--------+------+------+------+------+------| KTTY |           |Delete|------+------+------+------+------+--------|
- * |PageDown|   Z  |   X  |   C* |   V* |   B* |      |           |      |   N* |   M  |   ,* |   .* |   /  |   =    |
- * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | ESC* |  `*  |  '"  | Left*|Right*|                                       |  Up* | Down*|   [* |   ]* |Version |
- *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,-------------.
- *                                        |L Ctrl|L Win |       |R Win |R Ctrl|
- *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |Cap/LA|       |R Alt |      |      |
- *                                 |Space | Tab  |------|       |------|Enter |BackSp|
- *                                 |      |      |Shift(|       |Shift)|      |      |
- *                                 `--------------------'       `----------------------'
- */
-    [KTTY] = LAYOUT_ergodox_pretty(
-        _______,        RCS(KC_1),     RCS(KC_2), RCS(KC_3),    RCS(KC_4),     RCS(KC_5), _______,                   MEH(KC_T),     RCS(KC_6),  RCS(KC_7),    RCS(KC_8),        RCS(KC_9),        RCS(KC_0), _______,
-        _______,        RCS(KC_Q),     RCS(KC_W), RCS(KC_E),    _______,       RCS(KC_T), RCS(KC_F2),                RCS(KC_ENTER), _______,    RCS(KC_U),    _______,          RCS(KC_O),        _______,   _______,
-        _______,        _______,       RCS(KC_S), _______,      RCS(KC_F),     _______,                                             _______,    _______,      _______,          RCS(KC_L),        _______,   _______,
-        _______,        _______,       _______,   RCS(KC_C),    RCS(KC_V),     RCS(KC_B), _______,                   _______,       RCS(KC_N),  _______,      RCS(KC_COMMA),    RCS(KC_DOT),      _______,   _______,
-        RCS(KC_ESCAPE), RCS(KC_GRAVE), _______,   RCS(KC_LEFT), RCS(KC_RIGHT),                                                      RCS(KC_UP), RCS(KC_DOWN), RCS(KC_LBRACKET), RCS(KC_RBRACKET), _______,
-                                                                                          _______, _______, _______, _______,
-                                                                                                   _______, _______,
-                                                                                 _______, _______, _______, _______, _______, _______
-  ),
 };
 // clang-format on
 
@@ -232,19 +200,11 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
     ),
 
     [ARRW] = LED_LAYOUT_ergodox_ez_pretty(
-        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF, HSV_OFF,    HSV_OFF,    HSV_OFF,  HSV_OFF,
-        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF, HSV_OFF,    HSV_PURPLE, HSV_OFF,  HSV_OFF,
-        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF, HSV_PURPLE, HSV_PURPLE, HSV_PURPLE, HSV_OFF,
-        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF, HSV_OFF,    HSV_OFF,    HSV_OFF,    HSV_OFF,
-        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,                          HSV_OFF,    HSV_OFF,    HSV_OFF,    HSV_OFF
-    ),
-
-    [KTTY] = LED_LAYOUT_ergodox_ez_pretty(
-        HSV_PINK, HSV_PINK,    HSV_PINK,    HSV_PINK,    HSV_PINK,        HSV_PINK, HSV_PINK,    HSV_PINK,    HSV_PINK,    HSV_PINK,
-        HSV_CYAN, HSV_PINK,    HSV_MAGENTA, HSV_OFF,     HSV_CYAN,        HSV_OFF,  HSV_MAGENTA, HSV_OFF,     HSV_MAGENTA, HSV_OFF,
-        HSV_OFF,  HSV_MAGENTA, HSV_OFF,     HSV_PINK,    HSV_OFF,         HSV_OFF,  HSV_OFF,     HSV_OFF,     HSV_CYAN,    HSV_OFF,
-        HSV_OFF,  HSV_OFF,     HSV_MAGENTA, HSV_MAGENTA, HSV_PINK,        HSV_PINK, HSV_OFF,     HSV_CYAN,    HSV_CYAN,    HSV_OFF,
-        HSV_PINK, HSV_OFF,     HSV_CYAN,    HSV_CYAN,                               HSV_MAGENTA, HSV_MAGENTA, HSV_PINK,    HSV_PINK
+        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF, HSV_OFF,     HSV_OFF,     HSV_OFF,     HSV_OFF,
+        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF, HSV_OFF,     HSV_MAGENTA, HSV_OFF,     HSV_OFF,
+        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF, HSV_MAGENTA, HSV_MAGENTA, HSV_MAGENTA, HSV_OFF,
+        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,        HSV_OFF, HSV_OFF,     HSV_OFF,     HSV_OFF,     HSV_OFF,
+        HSV_OFF, HSV_OFF, HSV_OFF, HSV_OFF,                          HSV_OFF,     HSV_OFF,     HSV_OFF,     HSV_OFF
     ),
 
 };
