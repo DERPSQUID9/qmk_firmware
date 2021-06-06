@@ -228,7 +228,10 @@ void set_layer_color(int layer) {
 }
 
 void rgb_matrix_indicators_user(void) {
-    if (g_suspend_state || keyboard_config.disable_layer_led) {
+    // if (g_suspend_state || keyboard_config.disable_layer_led) {
+    //     return;
+    // }
+    if (keyboard_config.disable_layer_led) {
         return;
     }
 
