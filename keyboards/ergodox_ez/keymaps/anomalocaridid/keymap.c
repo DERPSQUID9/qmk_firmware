@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| Left |           |Right |------+------+------+------+------+--------|
  * |PageDown|   Z  |   X  |   C  |   V  |   B  | GUI  |           |GUI   |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | ESC  |  ~`  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |Version |
+ *   | ESC  |  ~`  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |PrntScrn|
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |L Alt | Caps |       | MOUS |R Alt |
@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_END,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T, TT(FNCT),                  KC_DEL,   KC_Y, KC_U,  KC_I,    KC_O,    KC_P,    KC_BSLS,
         KC_PGUP, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                                      KC_H, KC_J,  KC_K,    KC_L,    KC_SCLN, KC_MINUS,
         KC_PGDN, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LGUI,                   KC_RGUI,  KC_N, KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
-        KC_ESC,  KC_GRV, KC_QUOT, KC_LEFT, KC_RGHT,                                                  KC_UP, KC_DOWN, KC_LBRC, KC_RBRC, VRSN,
+        KC_ESC,  KC_GRV, KC_QUOT, KC_LEFT, KC_RGHT,                                                  KC_UP, KC_DOWN, KC_LBRC, KC_RBRC, KC_PSCR,
                                                           KC_LALT, KC_CAPS, TG(MOUS), KC_RALT,
                                                                    KC_LCTL, KC_RCTL,
                                                 KC_SPACE, KC_TAB,  KC_LSPO, KC_RSPC, KC_ENTER, KC_BSPC
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| Left |           |Right |------+------+------+------+------+--------|
  * |Mac2Play|      |      |      |      |      | GUI  |           |GUI   |      |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |RecStp|      |      |      |      |                                       |      |      |      |      |        |
+ *   |RecStp|      |      |      |      |                                       |      |      |      |      |Version |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |L Alt | Caps |       |      |R Alt |
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         DM_REC2, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  _______,                   _______, KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  FLASH,
         DM_PLY1, KC_F21,  KC_F22,  KC_F23,  KC_F24,  XXXXXXX,                                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         DM_PLY2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,                   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        DM_RSTP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        DM_RSTP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, VRSN,
                                                               _______, _______, XXXXXXX, _______,
                                                                        _______, _______,
                                                      _______, _______, _______, _______, _______, _______
@@ -89,9 +89,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Page Up |   A  |   S  |   D  |   F  |   G  |------|           |------|W Down|M Down| M Up |MRight|   ;  |   -    |
  * |--------+------+------+------+------+------| Left |           |Right |------+------+------+------+------+--------|
- * |PageDown|   Z  |   X  |   C  |   V  |   B  | GUI  |           |GUI   |   N  |   M  |   ,  |   .  |   /  |   /  |   =    |
+ * |PageDown|   Z  |   X  |   C  |   V  |   B  | GUI  |           |GUI   |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | ESC  |  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |Version |
+ *   | ESC  |  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |PrntScrn|
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |L Alt | Caps |       | MOUS |Butt 5|
@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| Left |           |Right |------+------+------+------+------+--------|
  * |PageDown|   Z  |   X  |   C  |   V  |   B  | GUI  |           |GUI   |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | ESC  |  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |Version |
+ *   | ESC  |  `~  |  '"  | Left |Right |                                       |  Up  | Down |   [  |   ]  |PrntScrn|
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |L Alt | Caps |       |      |R Alt |
